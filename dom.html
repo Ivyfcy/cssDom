@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <style>
-    .box{
+    .box {
         width: 30px;
         height: 30px;
         border: 100px solid;
@@ -15,175 +17,212 @@
         border-top-color: yellow;
         border-bottom-color: pink;
     }
-/* 爱心 */
-.heard{
-    width: 200px;
-    height: 300px;
-    border: 1px solid #000;
-    margin: 100px auto;
-    position: relative;
-}
-.heard::before,.heard::after{
-    content: "可可";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: red;
-    left: 0;
-    top: 0;
-    border-radius: 100px 100px 0 0;
-    transform:rotate(-45deg);
-    text-align: center;
-    line-height: 100px;
-    color: yellow
-}
-.heard::after{
-    content: "心心";
-    left: 71px;
-    transform:rotate(45deg)
-}
-/* 钱包 */
-.mbox{
-    width: 300px;
-    height: 300px;
-    border: 1px solid #000;
-    position: relative;
-}
-.mbox::before,.mbox::after{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 50%;
-    background: pink;
-    transition: all 1s;
-    text-align: center;
-    line-height: 250px;
-    backface-visibility: hidden;
-/* 让盒子背面隐藏 */
-}
-.mbox::before{
-    content: "恭喜发财";
-    /* left: 300px; */
-    transform: rotateY(-180deg)
-}
-.mbox::after{
-    content: "我的钱包";
-    /* transform: rotateY(0deg) */
-}
-.mbox:hover::before{
-    transform: rotateY(0deg)
-}
-.mbox:hover::after{
-    transform: rotateY(180deg)
-}
-/* 字体变化 */
-body{
-    background: #eee
-}
-.font{
-    width: 300px;
-    margin: 100px auto;
-}
-.font span{
-    float: left;
-    width: 100px;
-    height: 100px;
-    font-size: 80px;
-    line-height: 100px;
-    text-align: center;
-    font-family: "Microsoft Yahei";
-    position: relative;
-}
-span::before,span::after{
-    /* 通过伪元素来获取自定义属性的值 */
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100px;
-    height: 100px;
-    font-size: 80px;
-    line-height: 100px;
-    text-align: center;
-    font-family: "Microsoft Yahei";
-    color: #fff;
-    transform: scale(0.95,1);
-    /* 变换中心 */
-    transform-origin: left;
-    /* 过度 */
-    transition: all 0.5s;
-}
-span::before{
-    color: rgba(0, 0, 0, 0.3)
-}
-.font:hover span::after{
-    transform: rotateY(25deg) skew(0deg,5deg)
 
-}
-.font:hover span::before{
-    transform: skew(0deg,15deg)
+    /* 爱心 */
 
-}
-/* 立方体 */
-.dbox{
-    width: 250px;
-    height: 250px;
-    border: 1px dashed #000;
-    border-radius: 50%;
-    margin: 100px auto;
-    position: relative;
-    /* 让子盒子保持3d效果 */
-    transform-style: preserve-3d;
-    transform: rotateX(30deg) rotateY(-30deg);
-    animation: gun 8s linear infinite;
-   
-}
-.dbox>div{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    text-align: center;
-    line-height: 250px;
-    font-size: 60px;
-    color: red;
-    
-}
-.left{
-    background: rgba(255, 0, 0, 0.3);
-    transform-origin: left;
-    transform: rotateY(90deg) translateX(-125px)
-}
-.right{
-    background: rgba(0, 0, 255, 0.3);
-    transform-origin: right;
-    transform: rotateY(90deg) translateX(125px)
-}
-.forward{
-    background: rgba(255, 255, 0, 0.3);
-    transform: translateZ(125px)
-}
-.back{
-    background: rgba(0, 255, 255, 0.3);
-    transform: translateZ(-125px)
-}
-.up{
-    background: rgba(255, 0, 255, 0.3);
-    transform: rotateX(90deg) translateZ(125px)
-    
-}
-.down{
-    background: rgba(99, 66, 33, 0.3);
-    transform: rotateX(90deg) translateZ(-125px)
-    
-}
-@keyframes gun{
-    0%{
-        transform: rotateX(0deg) rotateY(0deg)
+    .heard {
+        width: 200px;
+        height: 300px;
+        border: 1px solid #000;
+        margin: 100px auto;
+        position: relative;
     }
-    100%{
+
+    .heard::before,
+    .heard::after {
+        content: "可可";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: red;
+        left: 0;
+        top: 0;
+        border-radius: 100px 100px 0 0;
+        transform: rotate(-45deg);
+        text-align: center;
+        line-height: 100px;
+        color: yellow
+    }
+
+    .heard::after {
+        content: "心心";
+        left: 71px;
+        transform: rotate(45deg)
+    }
+
+    /* 钱包 */
+
+    .mbox {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        position: relative;
+    }
+
+    .mbox::before,
+    .mbox::after {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 50%;
+        background: pink;
+        transition: all 1s;
+        text-align: center;
+        line-height: 250px;
+        backface-visibility: hidden;
+        /* 让盒子背面隐藏 */
+    }
+
+    .mbox::before {
+        content: "恭喜发财";
+        /* left: 300px; */
+        transform: rotateY(-180deg)
+    }
+
+    .mbox::after {
+        content: "我的钱包";
+        /* transform: rotateY(0deg) */
+    }
+
+    .mbox:hover::before {
+        transform: rotateY(0deg)
+    }
+
+    .mbox:hover::after {
+        transform: rotateY(180deg)
+    }
+
+    /* 字体变化 */
+
+    body {
+        background: #eee
+    }
+
+    .font {
+        width: 300px;
+        margin: 100px auto;
+    }
+
+    .font span {
+        float: left;
+        width: 100px;
+        height: 100px;
+        font-size: 80px;
+        line-height: 100px;
+        text-align: center;
+        font-family: "Microsoft Yahei";
+        position: relative;
+    }
+
+    span::before,
+    span::after {
+        /* 通过伪元素来获取自定义属性的值 */
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        font-size: 80px;
+        line-height: 100px;
+        text-align: center;
+        font-family: "Microsoft Yahei";
+        color: #fff;
+        transform: scale(0.95, 1);
+        /* 变换中心 */
+        transform-origin: left;
+        /* 过度 */
+        transition: all 0.5s;
+    }
+
+    span::before {
+        color: rgba(0, 0, 0, 0.3)
+    }
+
+    .font:hover span::after {
+        transform: rotateY(25deg) skew(0deg, 5deg)
+    }
+
+    .font:hover span::before {
+        transform: skew(0deg, 15deg)
+    }
+
+    /* 立方体 */
+
+    .dbox {
+        width: 250px;
+        height: 250px;
+        border: 1px dashed #000;
+        border-radius: 50%;
+        margin: 100px auto;
+        position: relative;
+        /* 让子盒子保持3d效果 */
+        transform-style: preserve-3d;
+        transform: rotateX(30deg) rotateY(-30deg);
+        animation: gun 8s linear infinite;
+
+    }
+
+    .dbox>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        text-align: center;
+        line-height: 250px;
+        font-size: 60px;
+        color: red;
+
+    }
+
+    .left {
+        background: rgba(255, 0, 0, 0.3);
+        transform-origin: left;
+        transform: rotateY(90deg) translateX(-125px)
+    }
+
+    .right {
+        background: rgba(0, 0, 255, 0.3);
+        transform-origin: right;
+        transform: rotateY(90deg) translateX(125px)
+    }
+
+    .forward {
+        background: rgba(255, 255, 0, 0.3);
+        transform: translateZ(125px)
+    }
+
+    .back {
+        background: rgba(0, 255, 255, 0.3);
+        transform: translateZ(-125px)
+    }
+
+    .up {
+        background: rgba(255, 0, 255, 0.3);
+        transform: rotateX(90deg) translateZ(125px)
+    }
+
+    .down {
+        background: rgba(99, 66, 33, 0.3);
+        transform: rotateX(90deg) translateZ(-125px)
+    }
+
+    @keyframes gun {
+        0% {
+            transform: rotateX(0deg) rotateY(0deg)
+        }
+        100% {
             transform: rotateX(360deg) rotateY(360deg)
+        }
     }
-}
+
+    /* 卷轴 */
+
+    .Father {
+        background: url("img/night.jpeg")no-repeat 50% 0;
+        width: 800px;
+        height: 580px;
+        margin: 100px auto;
+    }
 *{
     margin: 0;
     padding: 0;
@@ -235,6 +274,7 @@ ul:hover li{
     transform: rotateX(-90deg)
 }
 </style>
+
 <body>
     <div class="font">
         <span data-text=六>六</span>
@@ -244,7 +284,7 @@ ul:hover li{
     <div class="box"></div>
     <div class="heard"></div>
     <div class="mbox"></div>
-    
+
     <div class="dbox">
         <div class="up">上</div>
         <div class="down">下</div>
@@ -271,5 +311,53 @@ ul:hover li{
             <span>目录2</span>
         </li>
     </ul>
+    <!-- 卡通人 -->
+    <div class="wrapper">
+        <div class="border-circle" id="one"></div>
+        <div class="border-circle" id="two"></div>
+        <div class="background-circle">
+            <div class="triangle-light"></div>
+            <div class="body"></div>
+            <span class="shirt-text">I</span>
+            <span class="shirt-text">♥</span>
+            <span class="shirt-text">C</span>
+            <span class="shirt-text">S</span>
+            <span class="shirt-text">S</span>
+            <div class="triangle-dark"></div>
+        </div>
+        <div class="head">
+            <div class="ear" id="left"></div>
+            <div class="ear" id="right"></div>
+            <div class="hair-main">
+                <div class="sideburn" id="left"></div>
+                <div class="sideburn" id="right"></div>
+                <div class="hair-top"></div>
+            </div>
+            <div class="face">
+                <div class="hair-bottom"></div>
+                <div class="nose"></div>
+                <div class="eye-shadow" id="left">
+                    <div class="eyebrow"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="eye-shadow" id="right">
+                    <div class="eyebrow"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="mouth"></div>
+                <div class="shadow-wrapper">
+                    <div class="shadow"></div>
+                </div>
+            </div>
+        </div>
+        <span class="music-note" id="one">♫</span>
+        <span class="music-note" id="two">♪</span>
+    </div>
+
+    <!-- 卷轴 -->
+    <div class="Father">
+        <div class="child"></div>
+    </div>
 </body>
+
 </html>
